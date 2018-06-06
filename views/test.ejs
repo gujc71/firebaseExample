@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="UTF-8">
+  <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+  </head>
+  <body>
+    <h1>Firebase Test</h1>
+    <p>Firebase console에 데이터가 추가 되었는지 확인하세요</p>
+  </body>
+</html>
+
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyD6eJLbngFtx9J5vHa7bs5J5XYICPQDYbE",
+    authDomain: "jschat-355da.firebaseapp.com",
+    databaseURL: "https://jschat-355da.firebaseio.com",
+    projectId: "jschat-355da",
+    storageBucket: "jschat-355da.appspot.com",
+    messagingSenderId: "926244176443"
+  };
+  firebase.initializeApp(config);
+  
+  var postData = {
+	brdwriter: "홍길동",
+ 	brdtitle: "게시판 테스트", 
+ 	brdmemo: "게시물 내용", 
+ 	brddate: Date.now()
+  };
+
+  var newPostKey = firebase.database().ref().child('posts').push().key;
+
+  var updates = {};
+  updates['/board/' + newPostKey] = postData;
+
+  firebase.database().ref().update(updates);
+		  
+</script>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>board sample for firebase (Cloud Firestore Beta)</title>
+</head>
+<body>
+		<table border="1" style="width:600px">
+			<caption>board sample for firebase (Cloud Firestore Beta)</caption>
+			<colgroup>
+				<col width='15%' />
+				<col width='*%' />
+			</colgroup>
+			<tbody>
+				<tr>
+					<td>Writer</td> 
+					<td><%=row.brdwriter%> (<%=row.brddate%>)</td> 
+				</tr>
+				<tr>
+					<td>Title</td> 
+					<td><%=row.brdtitle%></td> 
+				</tr>
+				<tr>
+					<td>Memo</td> 
+					<td><%=row.brdmemo%></td> 
+				</tr>
+			</tbody>
+		</table>    
+		<a href="#" onclick="history.back(-1)">List</a>
+		<a href="boardDelete?brdno=<%=row.brdno%>">Delete</a>
+		<a href="boardForm?brdno=<%=row.brdno%>">Modify</a>
+</body>
+</html>
