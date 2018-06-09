@@ -4,7 +4,7 @@ var firebase = require("firebase");
 var dateFormat = require('dateformat');
 
 router.get('/', function(req, res, next) {
-    res.redirect('list');
+    res.redirect('boardList');
 });
 
 var config = {
@@ -17,7 +17,7 @@ var config = {
 };
 firebase.initializeApp(config);
       
-router.get('/list', function(req, res, next) {
+router.get('/boardList', function(req, res, next) {
     firebase.database().ref('board').orderByKey().once('value', function(snapshot) {
         var rows = [];
         snapshot.forEach(function(childSnapshot) {
@@ -27,7 +27,7 @@ router.get('/list', function(req, res, next) {
             childData.brddate = dateFormat(childData.brddate, "yyyy-mm-dd");
             rows.push(childData);
         });
-        res.render('board1/list', {rows: rows});
+        res.render('board1/boardList', {rows: rows});
     });
 });
 
@@ -68,12 +68,12 @@ router.post('/boardSave', function(req,res,next){
     //updates['/board/' + postData.brdno] = postData;
     //firebase.database().ref().update(updates);
     
-    res.redirect('list');
+    res.redirect('boardList');
 });
 
 router.get('/boardDelete', function(req,res,next){
     firebase.database().ref('board/' + req.query.brdno).remove();
-    res.redirect('list');
+    res.redirect('boardList');
 });
 
 module.exports = router;
