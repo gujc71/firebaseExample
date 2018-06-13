@@ -5,7 +5,7 @@
 <title>board sample for firebase (Realtime Database)</title>
 </head>
 <body>
-	<a href="/boardForm">New</a>
+	<a href="boardForm">New</a>
 					
 	<table border="1" style="width:600px">
 		<caption>board sample for firebase (Realtime Database)</caption>
@@ -29,7 +29,7 @@
 		%>
 			<tr>
 				<td><%=rows.length-i%></td>
-				<td><a href='/boardRead?brdno=<%=rows[i].brdno%>'><%=rows[i].brdtitle%></a></td>
+				<td><a href='boardRead?brdno=<%=rows[i].brdno%>'><%=rows[i].brdtitle%></a></td>
 				<td><%=rows[i].brdwriter%></td>
 				<td><%=rows[i].brddate%></td>
 			</tr>
